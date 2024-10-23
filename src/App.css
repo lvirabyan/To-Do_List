@@ -1,38 +1,225 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #0056b3;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  color: #ffffff;
+  width: 95%;
+  height: 100px;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure section takes full width */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.todo-search-bar {
+  display: flex;
+  width: 95%;
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin: 7px; /* Adjust margin for spacing */
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.todo-search-bar input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+}
+
+.todo-stats {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-all {
+  background-color: #007bff;
+}
+
+.button-done {
+  background-color: green;
+}
+
+.button-important {
+  background-color: #cc0000;
+}
+
+.button-all:hover {
+  background-color: #0056b3;
+}
+
+.button-done:hover {
+  background-color: #046c04;
+}
+
+.button-important:hover {
+  background-color: #820303;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-list {
+  width: 95%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.todo-item:first-child {
+  border-top: 1px solid #999;
+}
+
+.todo-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.todo-title.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+.todo-title.important {
+  color: red; 
+}
+.todo-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button-delete,
+.button-toggle-done,
+.button-toggle-important-important{
+  border-radius: 5px;
+  border: none;
+  padding: 10px 15px;
+}
+
+.button-delete {
+  background-color: #cc0000;
+}
+
+.button-toggle-done {
+  background-color: green;
+}
+
+.button-toggle-important {
+  display: flex;
+  justify-content: center;
+  background-color: #cc0000;
+  border-radius: 5px;
+  width: 90px;
+}
+
+.button-delete:hover {
+  background-color: #820303;
+}
+
+.button-toggle-done:hover {
+  background-color: #046c04;
+}
+
+.button-toggle-important:hover {
+  background-color: #820303;
+}
+
+.todo-input-wrapper {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.todo-input-wrapper input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.todo-input-wrapper input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.button-add {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.button-add:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .todo-search-bar {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%; /* Full width on small screens */
+    margin-bottom: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 1.5em; /* Reduce header size on smaller screens */
   }
 }
