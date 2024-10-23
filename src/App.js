@@ -1,6 +1,20 @@
 import { useRef } from "react";
+import useTodoManager from "./hook/useTodoManager";
 import "./App.css";
-import useTodoManager from "./useTodoManager"; // Importing the custom hook
+import {
+  HEADER_TITLE,
+  BUTTON_ALL,
+  BUTTON_DONE,
+  BUTTON_IMPORTANT,
+  BUTTON_DELETE,
+  BUTTON_UNDO,
+  BUTTON_DONE_LABEL,
+  BUTTON_ADD_ITEM,
+  BUTTON_UNIMPORTANT,
+  BUTTON_MARK_IMPORTANT,
+  SEARCH_PLACEHOLDER,
+  INPUT_PLACEHOLDER
+} from "./constants/text.js";
 
 function App() {
   const {
@@ -23,7 +37,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>MY TODO LIST</h1>
+        <h1>{HEADER_TITLE}</h1>
         <div className="todo-stats">
           <span>Done: {todos.filter((todo) => todo.completed).length}</span>
           <span>
@@ -35,7 +49,7 @@ function App() {
       <section className="todo-section">
         <div className="todo-search-bar">
           <input
-            placeholder="Type text for search..."
+            placeholder={SEARCH_PLACEHOLDER}
             ref={searchInputRef}
             onChange={(e) => handleSearch(e.target.value)}
           />
@@ -47,16 +61,16 @@ function App() {
               setTodos(originalTodos);
             }}
           >
-            All
+            {BUTTON_ALL}
           </button>
           <button className="button-done" onClick={() => setFilter("done")}>
-            Done
+            {BUTTON_DONE}
           </button>
           <button
             className="button-important"
             onClick={() => setFilter("important")}
           >
-            Important
+            {BUTTON_IMPORTANT}
           </button>
         </div>
 
@@ -75,13 +89,13 @@ function App() {
                   className="button-delete"
                   onClick={() => handleDeleteTodo(todo.id)}
                 >
-                  Delete
+                  {BUTTON_DELETE}
                 </button>
                 <button
                   className="button-toggle-done"
                   onClick={() => handleToggleComplete(todo.id)}
                 >
-                  {todo.completed ? "Undo" : "Done"}
+                  {todo.completed ? BUTTON_UNDO : BUTTON_DONE_LABEL}
                 </button>
                 <button
                   className={`button-toggle-important ${
@@ -89,7 +103,7 @@ function App() {
                   }`}
                   onClick={() => handleToggleImportant(todo.id)}
                 >
-                  {todo.important ? "Unimportant" : "Important"}
+                  {todo.important ? BUTTON_UNIMPORTANT : BUTTON_MARK_IMPORTANT}
                 </button>
               </div>
             </li>
@@ -100,7 +114,7 @@ function App() {
           <input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Item text..."
+            placeholder={INPUT_PLACEHOLDER}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 handleAddTodo();
@@ -108,7 +122,7 @@ function App() {
             }}
           />
           <button className="button-add" onClick={handleAddTodo}>
-            Add Item
+            {BUTTON_ADD_ITEM}
           </button>
         </div>
       </section>

@@ -35,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Ensure section takes full width */
+  width: 100%; 
 }
 
 .todo-search-bar {
@@ -43,7 +43,7 @@ body {
   width: 95%;
   border: 1px solid #999;
   border-radius: 5px;
-  margin: 7px; /* Adjust margin for spacing */
+  margin: 7px; 
   overflow: hidden;
   align-items: stretch;
 }
@@ -204,7 +204,6 @@ ul {
   background-color: #0056b3;
 }
 
-/* Responsive design */
 @media (max-width: 600px) {
   .app-container {
     padding: 10px;
@@ -215,11 +214,11 @@ ul {
   }
 
   button {
-    width: 100%; /* Full width on small screens */
+    width: 100%;
     margin-bottom: 10px;
   }
 
   .app-header h1 {
-    font-size: 1.5em; /* Reduce header size on smaller screens */
+    font-size: 1.5em;
   }
 }
